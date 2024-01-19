@@ -27,11 +27,17 @@ public class WeatherUI {
     }
 
     public static void displayWeatherInfo(WeatherData weatherData){
+        System.out.println();
         System.out.println("Weather information for " + weatherData.getCity());
+        System.out.println();
         System.out.println("Temperature: " + weatherData.getTemperature() + "°C");
+        System.out.println();
         System.out.println("Description: " + weatherData.getDescription());
+        System.out.println();
         System.out.println("Humidity: " + weatherData.getHumidity() + "%");
-        System.out.println("Wind Direction: " + weatherData.getWindDirection() + " degrees");
+        System.out.println();
+        System.out.println("Wind Speed: " + weatherData.getWindDirection() + " m/s");
+        System.out.println();
     }
 
     public static void displayTitle() {

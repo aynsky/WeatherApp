@@ -37,16 +37,40 @@ public class WeatherApi {
                     // Parse the JSON response
                     JSONObject jsonResponse = new JSONObject(response.toString());
 
+                    // Print the raw JSON response for debugging
+                    //LSystem.out.println("Raw JSON Response: " + jsonResponse.toString());
+
                     // Extract relevant data
                     String cityName = jsonResponse.getString("name");
-                    double temperature = jsonResponse.getJSONObject("main").getDouble("temp");
+                    double temperatureKelvin = jsonResponse.getJSONObject("main").getDouble("temp");
                     String description = jsonResponse.getJSONArray("weather")
                             .getJSONObject(0).getString("description");
                     int humidity = jsonResponse.getJSONObject("main").getInt("humidity");
-                    double windDirection = jsonResponse.getJSONObject("wind").getDouble("deg");
+                    double windDirection = jsonResponse.getJSONObject("wind").getDouble("speed");
+
+                    // Convert temperature from Kelvin to Celsius
+                    double temperatureCelsius = temperatureKelvin - 273.15;
+
+                    // Format temperature to have two decimal places
+                    String formattedTemperature = String.format("%.2f", temperatureCelsius);
+
+
+
+                    /*System.out.println("Extracted values - City: " + cityName + ", Temperature: " + temperature +
+                                        ", Description: " + description + ", Humidity: " + humidity + ", Wind Direction: " + windDirection);*/
 
                     // Create a WeatherData object
-                    return new WeatherData(cityName, temperature, description, humidity, windDirection);
+                    WeatherData weatherData = new WeatherData(cityName, formattedTemperature, description, humidity, windDirection);
+                    //System.out.println("WeatherData Object: " + weatherData);
+
+                    
+
+                    // Display the WeatherData object properties
+                    /*System.out.println("City: " + weatherData.getCity() + ", Temperature: " + weatherData.getTemperature() +
+                                        ", Description: " + weatherData.getDescription() + ", Humidity: " + weatherData.getHumidity() +
+                                        ", Wind Direction: " + weatherData.getWindDirection());*/
+                    return weatherData;
+
 
                 } // InputStream and Scanner will be automatically closed here
             } else {
