@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "WeatherApp/lib/json-20231013.jar"
+    ]
+}

@@ -1,7 +1,7 @@
 {
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ]
+    "java.project.referencedLibraries":["D:/edu/BIT/Sem 01/Introduction to Programming/New folder/WeatherApp/WeatherApp/lib/json-20231013.jar"],
+      
+    
 }
